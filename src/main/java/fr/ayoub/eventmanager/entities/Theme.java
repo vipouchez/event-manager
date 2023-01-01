@@ -21,7 +21,7 @@ public class Theme {
     //@JsonIgnore
     private Integer id;
     private  String name;
-    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "theme",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Event> events = new ArrayList<Event>();
 
