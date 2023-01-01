@@ -1,15 +1,11 @@
-package event.entities;
+package fr.ayoub.eventmanager.entities;
 
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
-
+import javax.persistence.*;
 
 @Entity
 @Data
-
-@NoArgsConstructor
-@AllArgsConstructor
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +15,7 @@ public class Event {
     private String animator;
     private String picture;
     @ManyToOne
-    private  Theme theme;
+    private Theme theme;
 
     public String toString(){
         return null;

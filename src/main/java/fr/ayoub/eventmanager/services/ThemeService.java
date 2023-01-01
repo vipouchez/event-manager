@@ -1,8 +1,8 @@
-package event.services;
+package fr.ayoub.eventmanager.services;
 
-import event.dao.ThemeRepository;
-import event.entities.Event;
-import event.entities.Theme;
+import fr.ayoub.eventmanager.dao.ThemeRepository;
+import fr.ayoub.eventmanager.entities.Event;
+import fr.ayoub.eventmanager.entities.Theme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,8 @@
-package event.services;
+package fr.ayoub.eventmanager.services;
 
-import event.entities.Event;
-import event.entities.Theme;
+
+import fr.ayoub.eventmanager.entities.Event;
+import fr.ayoub.eventmanager.entities.Theme;
 
 import java.util.List;
 

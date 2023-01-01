@@ -1,10 +1,9 @@
-package event.controller;
+package fr.ayoub.eventmanager.controller;
 
-
-import event.dto.EventDto;
-import event.entities.Event;
-import event.services.EventService;
-import event.services.ThemeService;
+import fr.ayoub.eventmanager.dto.EventDto;
+import fr.ayoub.eventmanager.entities.Event;
+import fr.ayoub.eventmanager.services.EventService;
+import fr.ayoub.eventmanager.services.ThemeService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -19,6 +18,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+
 @Controller
 @RequestMapping("/eventapi")
 public class EventController {

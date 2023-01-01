@@ -1,13 +1,13 @@
-package event;
+package fr.ayoub.eventmanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EventApplication {
+public class EventManagerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EventApplication.class, args);
+		SpringApplication.run(EventManagerApplication.class, args);
 	}
 
 }

@@ -1,6 +1,6 @@
-package event.dao;
+package fr.ayoub.eventmanager.dao;
 
-import event.entities.Theme;
+import fr.ayoub.eventmanager.entities.Theme;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,14 +1,14 @@
-package event.services;
-import event.dao.EventRepository;
-import event.dao.ThemeRepository;
-import event.dto.EventDto;
-import event.entities.Event;
-import event.entities.Theme;
-import jakarta.persistence.EntityNotFoundException;
+package fr.ayoub.eventmanager.services;
+import fr.ayoub.eventmanager.dao.EventRepository;
+import fr.ayoub.eventmanager.dao.ThemeRepository;
+import fr.ayoub.eventmanager.dto.EventDto;
+import fr.ayoub.eventmanager.entities.Event;
+import fr.ayoub.eventmanager.entities.Theme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.EntityNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

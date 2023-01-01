@@ -1,4 +1,4 @@
-package event.dto;
+package fr.ayoub.eventmanager.dto;
 
 import lombok.Data;
 
