@@ -25,7 +25,7 @@ public class EventService implements IEventService{
     ThemeRepository tr;
 
     @Override
-    public void saveProduct(Event e, MultipartFile mf) throws IOException {
+    public void saveEvent(Event e, MultipartFile mf) throws IOException {
         if(!mf.getOriginalFilename().isEmpty()){
             String filePathOnServer = saveImage(mf);
             e.setPicture(filePathOnServer);

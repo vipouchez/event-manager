@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface IEventService {
-    void saveProduct(Event e, MultipartFile mf) throws IOException;
+    void saveEvent(Event e, MultipartFile mf) throws IOException;
     List<Event> getAllEvents() ;
     Event getEvent(int id);
     List<Event> searchByName(String mc);

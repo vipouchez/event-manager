@@ -50,7 +50,7 @@ public class EventController {
 
     @PostMapping("saveevent")
     public ModelAndView saveEvent(@ModelAttribute Event e, @RequestParam("file") MultipartFile file) throws IOException {
-        es.saveProduct(e, file);
+        es.saveEvent(e, file);
         return new ModelAndView("redirect:/eventapi/all");
     }
 

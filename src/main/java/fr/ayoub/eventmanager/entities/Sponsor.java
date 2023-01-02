@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity @Table(name="Event")
+@Entity
 @Data
 public class Sponsor {
      @Id
