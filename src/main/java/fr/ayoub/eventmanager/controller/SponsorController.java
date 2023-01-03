@@ -41,7 +41,12 @@ public class SponsorController {
         return ("redirect:/Sponsorapi/all");
     }
 
+    @PostMapping("savesponsor")
+    public String saveSponsorWithEvent(Sponsor s) {
+        ss.addSponsor(s);
 
+        return ("redirect:/Sponsorapi/all");
+    }
 
     @PostMapping("deletesponsor/{id}")
     public String deleteSponsor(@PathVariable int id ){
