@@ -23,13 +23,18 @@
   </div>
 
 <div class="mb-3">
-  <label for="Event" class="form-label">Event :</label>
+<!--  <label for="Event" class="form-label">Event :</label>
  <select name="event">
  <c:forEach items="${listEvent}" var="event">
- <option value="${event.id}">${event.name}</option>
+ <option value="${event.id}"  name="events[]">${event.name}</option>
  </c:forEach>
  </select>
+-->
 
+  <label for="fruits">Select some fruits:</label><br>
+<c:forEach items="${listEvent}" var="event">
+  <input type="checkbox" name="events[]" value="${event.id}"> ${event.name}<br>
+ </c:forEach>
   </div>
 
   </div>

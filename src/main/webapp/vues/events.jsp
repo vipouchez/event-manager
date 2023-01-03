@@ -22,6 +22,7 @@
 <table class="table table-hover">
 <tr>
  <th>Id</th><th>Name</th><th>Price</th><th>Animator</th><th>Theme</th><th>Picture</th><th>Action</th>
+ <th>sponsors</th>
 </tr>
 <c:forEach items="${events}" var="e">
 <tr>
@@ -30,11 +31,16 @@
 <td>${e.price }</td>
 <td>${e.animator}</td>
 <td>${e.theme.name}</td>
+
 <td> <img src="/eventapi/images/${e.picture}"  width="50" height="50" /> </td>
+
+
 <td> <form action="deleteevent/${e.id}" method="post">
          <button type="submit" class="btn btn-primary">Delete</button></form>
          <a href="/eventapi/event/${e.id}" class="btn btn-primary" > update </a>
 </td>
+
+<td>${e.sponsors}</td>
 
 </tr>
 </c:forEach>

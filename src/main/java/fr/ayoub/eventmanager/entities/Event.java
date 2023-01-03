@@ -1,6 +1,5 @@
 package fr.ayoub.eventmanager.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,7 +20,7 @@ public class Event {
     private Theme theme;
 
     public String toString() {
-        return null;
+        return name;
     }
 
     @ManyToMany

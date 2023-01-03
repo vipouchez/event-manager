@@ -1,5 +1,6 @@
 package fr.ayoub.eventmanager.controller;
 
+import fr.ayoub.eventmanager.dto.SponsorDto;
 import fr.ayoub.eventmanager.entities.Sponsor;
 import fr.ayoub.eventmanager.entities.Theme;
 import fr.ayoub.eventmanager.services.EventService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/sponsorapi")
@@ -25,7 +27,8 @@ public class SponsorController {
 
     @GetMapping("/all")
     public String getAll(Model m) {
-        m.addAttribute("sponsorlist", ss.getAllSponsors());
+        List<Sponsor> allSponsors = ss.getAllSponsors();
+        m.addAttribute("sponsorlist",allSponsors);
         return "sponsors";
     }
     @GetMapping("/addsponsor")
@@ -38,14 +41,7 @@ public class SponsorController {
     public String saveSponsor(Sponsor s) {
         ss.addSponsor(s);
 
-        return ("redirect:/Sponsorapi/all");
-    }
-
-    @PostMapping("savesponsor")
-    public String saveSponsorWithEvent(Sponsor s) {
-        ss.addSponsor(s);
-
-        return ("redirect:/Sponsorapi/all");
+        return ("redirect:/sponsorapi/all");
     }
 
     @PostMapping("deletesponsor/{id}")

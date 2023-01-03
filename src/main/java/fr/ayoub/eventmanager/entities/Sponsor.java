@@ -21,4 +21,8 @@ public class Sponsor {
      private List<Event> Events = new ArrayList<>();
 
 
+     public String toString(){
+         return name;
+     }
+
 }

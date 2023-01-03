@@ -14,14 +14,16 @@
 
 <table class="table table-hover">
 <tr>
- <th>Id</th><th>Name</th><th>Donation</th>
+ <th>Id</th><th>Name</th><th>Donation</th><th>Events</th><th>action</th>
 </tr>
 <c:forEach items="${sponsorlist}" var="s">
 <tr>
 <td>${s.id}</td>
 <td>${s.name}</td>
 <td>${s.donation}</td>
-
+<td>
+${s.events}
+</td>
 
 <td> <form action="deletesponsor/${s.id}" method="post">
          <button type="submit" class="btn btn-primary">Delete</button></form>

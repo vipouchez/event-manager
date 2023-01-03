@@ -1,5 +1,6 @@
 package fr.ayoub.eventmanager.services;
 
+import fr.ayoub.eventmanager.dto.SponsorDto;
 import fr.ayoub.eventmanager.entities.Event;
 import fr.ayoub.eventmanager.entities.Sponsor;
 import fr.ayoub.eventmanager.entities.Theme;

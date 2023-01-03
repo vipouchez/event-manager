@@ -1,6 +1,7 @@
 package fr.ayoub.eventmanager.services;
 
 import fr.ayoub.eventmanager.dao.SponsorRepository;
+import fr.ayoub.eventmanager.dto.SponsorDto;
 import fr.ayoub.eventmanager.entities.Sponsor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
