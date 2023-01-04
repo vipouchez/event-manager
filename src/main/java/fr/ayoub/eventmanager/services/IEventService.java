@@ -18,4 +18,5 @@ public interface IEventService {
     byte[] getImage(int id) throws IOException;
 
 
+    Event createOrUpdate(Event event);
 }

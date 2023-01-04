@@ -1,5 +1,6 @@
 package fr.ayoub.eventmanager.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,6 +15,8 @@ public class Sponsor {
     private Integer id;
      private String name;
      private Double donation;
+
+     @JsonIgnore
      @ManyToMany
      @JoinTable(name ="Event_Sponsor_Associations",
          joinColumns = @JoinColumn( name ="idSponsor"),

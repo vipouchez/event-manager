@@ -96,6 +96,36 @@ public class EventService implements IEventService{
         return Files.readAllBytes(p);
     }
 
+    @Override
+    public Event createOrUpdate(Event event) {
+        if(event.getId() == null){
+            return er.save(event);
+        }
+
+        Optional<Event> fromDbOptional = er.findById(event.getId());
+        if(fromDbOptional.isEmpty()){
+            throw new EntityNotFoundException("There is no such event with id : " + event.getId());
+        }
+
+        Event fromDb = fromDbOptional.get();
+
+        fromDb.setName(event.getName());
+        fromDb.setPrice(event.getPrice());
+        fromDb.setPicture(event.getPicture());
+        fromDb.setAnimator(event.getAnimator());
+
+        if(event.getTheme() != null && event.getTheme().getId() != null){
+            Optional<Theme> byIdThemeOptional = tr.findById(event.getTheme().getId());
+            if(byIdThemeOptional.isEmpty()){
+                throw new EntityNotFoundException("No such theme entity with id : " + event.getTheme().getId());
+            }
+
+            Theme themeFromDb = byIdThemeOptional.get();
+            fromDb.setTheme(themeFromDb);
+        }
+
+        return er.save(fromDb);
+    }
 
 
 }
