@@ -1,5 +1,6 @@
 package fr.ayoub.eventmanager.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class EventAddress {
 
 
 @OneToOne(mappedBy= "address")
+@JsonBackReference
     private Event event;
 
 }

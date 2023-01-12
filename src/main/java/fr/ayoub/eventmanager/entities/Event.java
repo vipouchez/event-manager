@@ -1,5 +1,7 @@
 package fr.ayoub.eventmanager.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,6 +20,7 @@ public class Event {
     private String animator;
     private String picture;
     @ManyToOne
+
     private Theme theme;
 
     public String toString() {
@@ -27,6 +30,7 @@ public class Event {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
+    @JsonManagedReference
     private EventAddress address;
 
     @ManyToMany

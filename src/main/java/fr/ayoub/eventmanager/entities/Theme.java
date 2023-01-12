@@ -1,6 +1,7 @@
 package fr.ayoub.eventmanager.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import fr.ayoub.eventmanager.entities.Event;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class Theme {
     private  String name;
     @OneToMany(mappedBy = "theme",cascade = CascadeType.ALL)
     @JsonIgnore
+
     private List<Event> events = new ArrayList<Event>();
 
 
