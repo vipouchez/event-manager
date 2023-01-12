@@ -2,6 +2,8 @@ package fr.ayoub.eventmanager.controller;
 
 import fr.ayoub.eventmanager.dto.EventDto;
 import fr.ayoub.eventmanager.entities.Event;
+import fr.ayoub.eventmanager.entities.EventAddress;
+import fr.ayoub.eventmanager.services.EventAddressService;
 import fr.ayoub.eventmanager.services.EventService;
 import fr.ayoub.eventmanager.services.ThemeService;
 import org.apache.commons.io.IOUtils;
@@ -26,6 +28,8 @@ public class EventController {
     EventService es;
     @Autowired
     ThemeService ts;
+    @Autowired
+    EventAddressService as;
 
     @GetMapping("/all")
     public String getAll(Model model) {
@@ -49,7 +53,10 @@ public class EventController {
     }
 
     @PostMapping("saveevent")
-    public ModelAndView saveEvent(@ModelAttribute Event e, @RequestParam("file") MultipartFile file) throws IOException {
+    public ModelAndView saveEvent(@ModelAttribute Event e, @RequestParam("file") MultipartFile file, @ModelAttribute EventAddress a) throws IOException {
+
+        as.addAddress(a);
+        e.setAddress(a);
         es.saveEvent(e, file);
         return new ModelAndView("redirect:/eventapi/all");
     }

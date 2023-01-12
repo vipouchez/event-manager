@@ -1,4 +1,5 @@
 package fr.ayoub.eventmanager.services;
+
 import fr.ayoub.eventmanager.dao.EventRepository;
 import fr.ayoub.eventmanager.dao.ThemeRepository;
 import fr.ayoub.eventmanager.dto.EventDto;
@@ -17,16 +18,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EventService implements IEventService{
+public class EventService implements IEventService {
     @Autowired
-    EventRepository er ;
+    EventRepository er;
 
     @Autowired
     ThemeRepository tr;
 
     @Override
     public void saveEvent(Event e, MultipartFile mf) throws IOException {
-        if(!mf.getOriginalFilename().isEmpty()){
+        if (!mf.getOriginalFilename().isEmpty()) {
             String filePathOnServer = saveImage(mf);
             e.setPicture(filePathOnServer);
         }
@@ -34,9 +35,9 @@ public class EventService implements IEventService{
         er.save(e);
     }
 
-    public void update (EventDto e){
+    public void update(EventDto e) {
         Optional<Event> eventOptional = er.findById(e.getId());
-        if(eventOptional.isEmpty()){
+        if (eventOptional.isEmpty()) {
             throw new EntityNotFoundException("No entity found with id : " + e.getId());
         }
 
@@ -46,7 +47,7 @@ public class EventService implements IEventService{
         event.setPrice(e.getPrice());
 
         Optional<Theme> themeOptional = tr.findById(e.getThemeId());
-        if(themeOptional.isEmpty()){
+        if (themeOptional.isEmpty()) {
             throw new EntityNotFoundException("No entity found with id : " + e.getThemeId());
         }
         Theme theme = themeOptional.get();
@@ -79,31 +80,30 @@ public class EventService implements IEventService{
     @Override
     public String saveImage(MultipartFile mf) throws IOException {
         String nameFile = mf.getOriginalFilename();
-        String tab[] =nameFile.split("\\.");
-        String fileModif=tab[0]+"_"+System.currentTimeMillis()+"."+tab[1];
-        String chemin =System.getProperty("user.home")+"/images2022/";
-        Path p = Paths.get(chemin,fileModif);
-        Files.write(p,mf.getBytes());
+        String tab[] = nameFile.split("\\.");
+        String fileModif = tab[0] + "_" + System.currentTimeMillis() + "." + tab[1];
+        String chemin = System.getProperty("user.home") + "/images2022/";
+        Path p = Paths.get(chemin, fileModif);
+        Files.write(p, mf.getBytes());
         return fileModif;
     }
 
 
-
     @Override
     public byte[] getImage(int id) throws IOException {
-        String nomImage=er.findById(id).get().getPicture();
-        Path p = Paths.get(System.getProperty("user.home")+"/images2022/",nomImage);
+        String nomImage = er.findById(id).get().getPicture();
+        Path p = Paths.get(System.getProperty("user.home") + "/images2022/", nomImage);
         return Files.readAllBytes(p);
     }
 
     @Override
     public Event createOrUpdate(Event event) {
-        if(event.getId() == null){
+        if (event.getId() == null) {
             return er.save(event);
         }
 
         Optional<Event> fromDbOptional = er.findById(event.getId());
-        if(fromDbOptional.isEmpty()){
+        if (fromDbOptional.isEmpty()) {
             throw new EntityNotFoundException("There is no such event with id : " + event.getId());
         }
 
@@ -114,9 +114,9 @@ public class EventService implements IEventService{
         fromDb.setPicture(event.getPicture());
         fromDb.setAnimator(event.getAnimator());
 
-        if(event.getTheme() != null && event.getTheme().getId() != null){
+        if (event.getTheme() != null && event.getTheme().getId() != null) {
             Optional<Theme> byIdThemeOptional = tr.findById(event.getTheme().getId());
-            if(byIdThemeOptional.isEmpty()){
+            if (byIdThemeOptional.isEmpty()) {
                 throw new EntityNotFoundException("No such theme entity with id : " + event.getTheme().getId());
             }
 

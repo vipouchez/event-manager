@@ -22,7 +22,7 @@
 <table class="table table-hover">
 <tr>
  <th>Id</th><th>Name</th><th>Price</th><th>Animator</th><th>Theme</th><th>Picture</th><th>Action</th>
- <th>sponsors</th>
+ <th>sponsors</th><th>address</th>
 </tr>
 <c:forEach items="${events}" var="e">
 <tr>
@@ -41,6 +41,7 @@
 </td>
 
 <td>${e.sponsors}</td>
+<td>${e.address.city} , ${e.address.district}</td>
 
 </tr>
 </c:forEach>

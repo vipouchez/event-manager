@@ -9,7 +9,10 @@ import java.util.List;
 
 public interface ISponsorService {
     void addSponsor(Sponsor s);
+
     List<Sponsor> getAllSponsors();
+
     void deleteSponsor(int id);
+
     void getSponsor(Integer id);
 }

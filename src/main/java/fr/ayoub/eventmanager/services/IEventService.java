@@ -9,10 +9,15 @@ import java.util.List;
 
 public interface IEventService {
     void saveEvent(Event e, MultipartFile mf) throws IOException;
-    List<Event> getAllEvents() ;
+
+    List<Event> getAllEvents();
+
     Event getEvent(int id);
+
     List<Event> searchByName(String mc);
+
     void deleteEvent(int id);
+
     String saveImage(MultipartFile mf) throws IOException;
 
     byte[] getImage(int id) throws IOException;

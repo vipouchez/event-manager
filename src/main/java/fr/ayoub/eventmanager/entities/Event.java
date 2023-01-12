@@ -8,6 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Table(name="event")
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +23,11 @@ public class Event {
     public String toString() {
         return name;
     }
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private EventAddress address;
 
     @ManyToMany
     @JoinTable(name ="Event_Sponsor_Associations",

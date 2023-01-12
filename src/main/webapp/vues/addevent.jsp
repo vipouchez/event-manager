@@ -25,6 +25,27 @@
  <input type="text" class="form-control" id="animator" name="animator" value="${event.animator}">
  </div>
 
+ <div class="mb-3">
+   <label for="eventAddress" class="form-label">Address :</label>
+ <div class="mb-3">
+  <label for="city" class="form-label">city:</label>
+  <input type="text" class="form-control" id="city" name="city" value="${eventAddress.city}">
+  </div>
+  <div class="mb-3">
+    <label for="district" class="form-label">district:</label>
+    <input type="text" class="form-control" id="district" name="district" value="${eventAddress.district}">
+    </div>
+    <div class="mb-3">
+      <label for="streetName" class="form-label">Street name:</label>
+      <input type="text" class="form-control" id="streetName" name="streetName" value="${eventAddress.streetName}">
+      </div>
+      <div class="mb-3">
+            <label for="streetCode" class="form-label">Street code:</label>
+            <input type="text" class="form-control" id="streetCode" name="streetCode" value="${eventAddress.streetCode}">
+            </div>
+</div>
+
+
 
  <div class="mb-3">
   <label for="Theme" class="form-label">Theme :</label>

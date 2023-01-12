@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
-public class SponsorService implements ISponsorService{
+public class SponsorService implements ISponsorService {
     @Autowired
     SponsorRepository sr;
+
     @Override
     public void addSponsor(Sponsor s) {
         sr.save(s);
@@ -24,7 +26,7 @@ public class SponsorService implements ISponsorService{
 
     @Override
     public void deleteSponsor(int id) {
-sr.deleteById(id);
+        sr.deleteById(id);
     }
 
     @Override
